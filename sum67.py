@@ -6,36 +6,16 @@
 # sum67([1, 1, 6, 7, 2]) → 4
 
 def sum67(nums):
-    count = 0
-    i = 0
+    sum = 0
     switch = 0
-    if len(nums) == 0:
-        count = 0
-    else:
-        while i < len(nums):
-            if nums[i] != 6 and switch == 0 and nums[i] != 7:
-                count += nums[i]
-                i += 1
-                # print("incremented")
-                continue
-            if nums[i] == 6 and switch == 0:
-                switch = 1
-                # print("switch ON")
-                i += 1
-            if nums[i] == 6 and switch == 1:
-                i += 1
-            if nums[i] == 7 and switch == 0:
-                count += nums[i]
-                # print("again 7")
-                i += 1
-            if switch == 1 and nums[i] == 7:
-                switch = 0
-                # print("switch OFF")
-                i += 1
-            else:
-                i += 1
-    # print(count)
-    return count
+    for i in nums:
+        if i != 6 and switch == 0:
+            sum += i
+        if i == 6 and switch == 0:
+            switch = 1
+        if i == 7 and switch == 1:
+            switch = 0
+    return sum
 
 
 print(sum67([1, 2, 2]))
