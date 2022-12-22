@@ -8,17 +8,23 @@
 
 
 def close_far(a, b, c):
-    resc = b - c
-    resc = abs(resc)
-
     resa = a - b
     resa = abs(resa)
 
-    resb = a - c
+    resb = b - c
     resb = abs(resb)
 
-    if resa == 1 or resb == 1:
-        if c - b - a > 2:
+    resc = a - c
+    resc = abs(resc)
+
+    if resa == 1 or resa == 0:
+        if abs(c - b) >= 2 and abs(c - a) >= 2:
+            return True
+    elif resb == 1 or resb == 0:
+        if abs(a - b) >= 2 and abs(a - c) >= 2:
+            return True
+    elif resc == 1 or resc == 0:
+        if abs(b - a) >= 2 and abs(b - c) >= 2:
             return True
     return False
 
